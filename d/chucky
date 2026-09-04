@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Challenge 1</title>
+  <meta name="description" content="A letter from the road. Solve the rest-stop riddle to open it.">
+  <style>
+    :root {
+      --bg: #0f1410;
+      --bg-2: #18211b;
+      --paper: #efe6d2;
+      --ink: #1a1712;
+      --muted: #6d6456;
+      --accent: #c45c26;
+    }
+
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+      background:
+        radial-gradient(1200px 500px at 10% -10%, #243028 0%, transparent 50%),
+        var(--bg);
+      color: var(--paper);
+      line-height: 1.5;
+    }
+
+    .wrap {
+      max-width: 40rem;
+      margin: 0 auto;
+      padding: 1.25rem 1rem 3rem;
+    }
+
+    .eyebrow {
+      font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      font-size: 0.7rem;
+      color: #9bb29f;
+      margin: 0 0 0.4rem;
+    }
+
+    h1 {
+      font-size: clamp(1.6rem, 5.5vw, 2.1rem);
+      line-height: 1.15;
+      font-weight: 600;
+      margin: 0 0 0.75rem;
+    }
+
+    .card {
+      background: var(--paper);
+      color: var(--ink);
+      border-radius: 6px;
+      padding: 1.1rem 1.15rem 1.2rem;
+      box-shadow: 0 18px 40px rgba(0,0,0,.28);
+    }
+
+    .card p { margin: 0 0 0.7rem; }
+    .card p:last-child { margin-bottom: 0; }
+
+    label {
+      display: block;
+      font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin: 0.9rem 0 0.35rem;
+    }
+
+    .row {
+      display: flex;
+      gap: 0.45rem;
+    }
+
+    input {
+      flex: 1;
+      font: inherit;
+      padding: 0.55rem 0.65rem;
+      border: 1px solid #cbbd9e;
+      border-radius: 4px;
+      background: #f7f1e3;
+      color: var(--ink);
+    }
+
+    button {
+      font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+      font-size: 0.8rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      border: 0;
+      border-radius: 4px;
+      padding: 0.55rem 0.8rem;
+      background: var(--accent);
+      color: #fff;
+      cursor: pointer;
+    }
+
+    #msg {
+      min-height: 1.3em;
+      margin: 0.55rem 0 0;
+      color: #8a3b1d;
+      font-size: 0.95rem;
+    }
+
+    #letter {
+      margin-top: 1rem;
+      border-top: 1px solid #cbbd9e;
+      padding-top: 0.9rem;
+    }
+
+    #letter[hidden] { display: none; }
+
+    .stamp {
+      display: inline-block;
+      border: 1px dashed #8a7d63;
+      color: #5c5346;
+      padding: 0.15rem 0.45rem;
+      font-size: 0.75rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    }
+
+    footer {
+      margin-top: 1.3rem;
+      color: #9aa897;
+      font-size: 0.92rem;
+    }
+
+    footer a { color: #d7dece; }
+
+    .fine { color: var(--muted); font-size: 0.92rem; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <p class="eyebrow">Challenge 1</p>
+    <h1>Chucky</h1>
+
+    <div class="card">
+      <p><strong>Challenge:</strong> What year was route 66 officially designated</p>
+
+      <label for="code">Passcode</label>
+      <div class="row">
+        <input id="code" type="text" inputmode="text" autocomplete="off" autocapitalize="characters" placeholder="">
+        <button type="button" onclick="unlock()">Open</button>
+      </div>
+      <p id="msg"></p>
+
+      <section id="letter" hidden>
+        <p>Well done traveler.  May your journey be joyous </p>
+        <p>We are headed west along route 66 to the Grand Canyon in our Coachman adventure van called Yeti.  We hope your journey is joyous!</p>
+        <p>Please leave the tag where you found it. </p>
+        <p>To find more, I will post locations on X <a href="https://x.com/commsonawire">@commsonawire</a></p>
+      <p>Using <a href="https://what3words.com/"> What 3 Words</a> as a the location.</p>
+      <p> Let me know if you were successful <a href="mailto:n3ws.nfc@pm.me">Email</a></P>
+
+      </section>
+
+     </div>
+
+    <footer>
+    
+    </footer>
+  </div>
+
+  <script>
+    const secret = "1926";
+    function unlock() {
+      const guess = document.getElementById("code").value.trim().toUpperCase();
+      const ok = guess === secret;
+      document.getElementById("letter").hidden = !ok;
+      document.getElementById("msg").textContent = ok ? "" : "Not yet.";
+      if (ok) document.getElementById("letter").scrollIntoView({ behavior: "smooth", block: "nearest" });
+    }
+    document.getElementById("code").addEventListener("keydown", function (e) {
+      if (e.key === "Enter") unlock();
+    });
+  </script>
+</body>
+</html>
