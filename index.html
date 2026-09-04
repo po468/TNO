@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Letters from the Road</title>
+  <meta name="description" content="NFC dead drops planted along a cross-country drive. Tap a tag. Solve a small puzzle. Read a letter from the road.">
+  <style>
+    :root {
+      --bg: #0f1410;
+      --bg-2: #18211b;
+      --paper: #efe6d2;
+      --ink: #1a1712;
+      --muted: #6d6456;
+      --rule: #cbbd9e;
+      --accent: #c45c26;
+      --good: #2f6b4f;
+    }
+
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+      background:
+        radial-gradient(1200px 500px at 10% -10%, #243028 0%, transparent 50%),
+        var(--bg);
+      color: var(--paper);
+      line-height: 1.5;
+    }
+
+    .wrap {
+      max-width: 40rem;
+      margin: 0 auto;
+      padding: 1.25rem 1rem 3rem;
+    }
+
+    header {
+      border-bottom: 1px solid #314036;
+      padding-bottom: 1.25rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .eyebrow {
+      font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      font-size: 0.7rem;
+      color: #9bb29f;
+      margin: 0 0 0.4rem;
+    }
+
+    h1 {
+      font-size: clamp(1.8rem, 6vw, 2.4rem);
+      line-height: 1.1;
+      font-weight: 600;
+      margin: 0 0 0.6rem;
+    }
+
+    .lede {
+      margin: 0;
+      color: #d7dece;
+      font-size: 1.05rem;
+    }
+
+    .card {
+      background: var(--paper);
+      color: var(--ink);
+      border-radius: 6px;
+      padding: 1.1rem 1.15rem 1.2rem;
+      box-shadow: 0 18px 40px rgba(0,0,0,.28);
+    }
+
+    .card h2 {
+      font-size: 1.05rem;
+      margin: 0 0 0.55rem;
+    }
+
+    .card p { margin: 0 0 0.7rem; }
+    .card p:last-child { margin-bottom: 0; }
+
+    ol {
+      margin: 0;
+      padding-left: 1.15rem;
+    }
+
+    ol li { margin: 0.35rem 0; }
+
+    .grid {
+      display: grid;
+      gap: 0.85rem;
+      margin-top: 1rem;
+    }
+
+    .region {
+      border: 1px solid #314036;
+      border-radius: 6px;
+      padding: 0.85rem 0.95rem;
+      background: var(--bg-2);
+    }
+
+    .region h3 {
+      margin: 0 0 0.25rem;
+      font-size: 1rem;
+    }
+
+    .region p {
+      margin: 0;
+      color: #c5d0c4;
+      font-size: 0.95rem;
+    }
+
+    code, .mono {
+      font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+      font-size: 0.86em;
+    }
+
+    .stamps {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 0.55rem;
+    }
+
+    .stamp {
+      border: 1px dashed #8a7d63;
+      color: #5c5346;
+      padding: 0.15rem 0.45rem;
+      font-size: 0.75rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    }
+
+    footer {
+      margin-top: 1.4rem;
+      color: #9aa897;
+      font-size: 0.92rem;
+    }
+
+    a { color: inherit; }
+    .card a { color: var(--accent); }
+    footer a { color: #d7dece; }
+
+    .fine {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <p class="eyebrow">NFC dead drops · a road letter project</p>
+      <h1>Letters from the Road</h1>
+      <p class="lede">Someone passing through left a small message here. If you found a tag, you are in the right place.</p>
+    </header>
+
+    <div class="card">
+      <h2>How to play</h2>
+      <ol>
+        <li>Tap the tag with your phone. It should open a page like <span class="mono">/d/wind-19</span>.</li>
+        <li>Read the riddle. The answer is the passcode.</li>
+        <li>Enter the code to open that stop’s letter, photo, and stamp.</li>
+      </ol>
+      <p class="fine">No app. No account. If nothing happens when you tap, your phone may need NFC turned on, or the tag may be sitting on metal.</p>
+    </div>
+
+    <div class="grid">
+      <section class="region">
+        <h3>What this is</h3>
+        <p>A cross-country drive, written in pieces and stuck to the world. Each drop is its own short encounter — not a chain you have to finish.</p>
+      </section>
+
+      <section class="region">
+        <h3>Where they are</h3>
+        <p>Planted along the route, usually at places people already linger: overlooks, rest stops, trailheads, town benches. This page will list regions, not exact hides.</p>
+      </section>
+
+      <section class="region">
+        <h3>Stamps so far</h3>
+        <p>Find a drop, unlock the letter, collect the mark.</p>
+        <div class="stamps">
+          <span class="stamp">High Plains</span>
+          <span class="stamp">Red Rock</span>
+          <span class="stamp">River Mile</span>
+          <span class="stamp">Open Road</span>
+        </div>
+      </section>
+    </div>
+
+    <footer>
+      <p>Left by a traveler. Harmless art project — just a webpage on a sticker.</p>
+      <p>If you found one, you can say hello on X: <a href="https://x.com/commsonawire">@commsonawire</a></p>
+    </footer>
+  </div>
+</body>
+</html>
